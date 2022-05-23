@@ -21,6 +21,13 @@ export const Items = styled.div`
   gap: 20px;
   color: white;
 
+  > {
+    &:hover{
+      color: #a0a0a0;
+      cursor: pointer;
+    }
+  }
+
 `
 export const Logo = styled.img`
   width: 111px;
