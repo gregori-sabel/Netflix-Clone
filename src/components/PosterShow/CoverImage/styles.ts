@@ -64,6 +64,7 @@ export const Buttons = styled.div`
 
 
   button{
+    
     display: flex;
     align-items: center;  
     justify-content: center;
@@ -92,6 +93,7 @@ export const Buttons = styled.div`
 
       font-weight: 800;
       font-size: 15px;
+
     }
   }
 
