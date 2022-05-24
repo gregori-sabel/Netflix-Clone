@@ -35,43 +35,32 @@ export function Genres(){
 
   async function handleSearch() {
 
-    api.get(`/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+    await api.get(`/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
       .then(res => setGenres(res.data))
-      .then(() => {
-        genres?.genres.map(genre => {
-          api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
-          .then(all => all.data.results)
-          .then(res => {
-
-            const genreWithMovies = {
-                id: String(genre.id),
-                name: genre.name,
-                movies:
-                  res.map((movie: Movie) => {
-                    return {
-                      id: String(movie.id),
-                      original_title: movie.original_title,
-                      poster_path: movie.poster_path,  
-                    }
-                  })                  
-              }
-              if(moviesByGenre){
-                console.log('...moviesByGenre')
-                console.log(...moviesByGenre)
-                console.log("genreWithMovies")
-                console.log(genreWithMovies)
-
-                setMoviesByGenre([...moviesByGenre, genreWithMovies]) 
-              } else {
-                // console.log('1...moviesByGenre')
-                // console.log(...moviesByGenre)
-                console.log("1genreWithMovies")
-                console.log(genreWithMovies)
-                setMoviesByGenre([genreWithMovies])   
-              }
-          })
-        })
-      })    
+  
+    let array: MoviesByGenre[] | null  = null
+    // console.log(genres)
+    array = genres?.genres.map(async(genre) => {
+      const response = await api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
+      
+      const results = response.data.results
+      
+      const genreWithMovies = { 
+        id: String(genre.id),
+        name: genre.name,
+        movies:
+        results.map((movie: Movie) => {
+            return {
+              id: String(movie.id),
+              original_title: movie.original_title,
+              poster_path: movie.poster_path,  
+            }
+          })                  
+        }
+        
+      return genreWithMovies
+    })
+    setMoviesByGenre(array)
 
   }
 
