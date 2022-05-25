@@ -15,66 +15,93 @@ interface MoviesByGenre {
   movies: Movie[];
 }
 
-interface GenresData {
-  genres: {
-    id: number,
-    name: string,
-  }[]
+interface GenreData {
+  id: number,
+  name: string,
 }
 
 export function Genres(){
-  const [genres, setGenres] = useState<GenresData | null>(null)
-  const [moviesByGenre, setMoviesByGenre] = useState<MoviesByGenre[] | null>(null
-    // {
-    //   id: 'greg',
-    //   movies: [{id: 'greg', original_title: 'gregs', poster_path: 'httpgreg'}],
-    //   name: 'greg'
-    // }
-  )
+  const [genres, setGenres] = useState<GenreData[] | null>(null)
+  const [moviesByGenre, setMoviesByGenre] = useState<MoviesByGenre[] | null>(null)
 
+  async function getMoviesByGenre(){
+    if (genres){
+      const array = await Promise.all([
+        genres.map(async(genre) =>  {
+          const response = await api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
 
+            const results = response.data.results 
+            // console.log(results)
+
+            const movies:Movie[] = results.map((movie: Movie) => { 
+              return {
+                id: String(movie.id),
+                original_title: movie.original_title, 
+                poster_path: movie.poster_path,   
+              }
+            })   
+      
+            const genreWithMovies = { 
+              id: String(genre.id), 
+              name: genre.name,
+              movies: movies               
+            }
+          
+            return genreWithMovies          
+        })        
+      ])
+      console.log(array)    
+
+      // const array = genres.forEach(async genre => {
+      //   const response = await api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
+
+      //   const results = response.data.results 
+ 
+      //   const movies:Movie[] = results.map((movie: Movie) => {
+      //     return {
+      //       id: String(movie.id),
+      //       original_title: movie.original_title,
+      //       poster_path: movie.poster_path,  
+      //     }
+      //   })   
+  
+      //   const genreWithMovies = { 
+      //     id: String(genre.id), 
+      //     name: genre.name,
+      //     movies: movies               
+      //   }
+      
+      //   return genreWithMovies         
+      // }) 
+
+      // console.log(array) 
+  
+    }
+
+  }
+  
   async function handleSearch() {
 
     await api.get(`/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
-      .then(res => setGenres(res.data))
+      .then(res => setGenres(res.data.genres))
+
+      getMoviesByGenre()
   
-    let array: MoviesByGenre[] | null  = null
-    // console.log(genres)
-    array = genres?.genres.map(async(genre) => {
-      const response = await api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
-      
-      const results = response.data.results
-      
-      const genreWithMovies = { 
-        id: String(genre.id),
-        name: genre.name,
-        movies:
-        results.map((movie: Movie) => {
-            return {
-              id: String(movie.id),
-              original_title: movie.original_title,
-              poster_path: movie.poster_path,  
-            }
-          })                  
-        }
-        
-      return genreWithMovies
-    })
-    setMoviesByGenre(array)
+
 
   }
 
 
   useEffect( () => {
     handleSearch()
+
   }, [])
   
-  // console.log(genres?.genres)
-  // console.log(moviesByGenre)   
+  
 
   return (
     <>
-      { genres?.genres.map( genre =>(
+      { genres?.map( genre =>(
         <Component key={genre.id}>
           <h1>{genre.name}</h1>
           {/* {genre?.map(genre => (
