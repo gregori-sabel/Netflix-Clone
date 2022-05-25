@@ -41,12 +41,12 @@ export function Genres(){
               }
             })   
       
-            const genreWithMovies = { 
+            const genreWithMovies = {  
               id: String(genre.id), 
               name: genre.name,
               movies: movies               
             }
-          
+            console.log(genreWithMovies)
             return genreWithMovies          
         })        
       ])
