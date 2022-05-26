@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { api } from "../../services/api"
+import Tmdb from "../../Tmdb";
 import { Component } from './styles'
 
 interface Movie{
@@ -8,84 +9,43 @@ interface Movie{
   poster_path: string
 }
 
-
-interface MoviesByGenre {
-  id: string;
-  name: string;
-  movies: Movie[];
-}
-
 interface GenreData {
-  id: number,
-  name: string,
+  slug: string,
+  title: string,
+  items: {
+    results: Movie[];
+  }
 }
+
 
 export function Genres(){
-  const [genres, setGenres] = useState<GenreData[] | null>(null)
-  const [moviesByGenre, setMoviesByGenre] = useState<MoviesByGenre[] | null>(null)
-
-  async function getMoviesByGenre(){
-    if(genres){
-      const array = await Promise.all([
-        genres.map(async(genre) =>  {
-          const response = await api.get(`discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&with_genres=${genre.id}&page=1`)
+  // const [movieList, setMovieList] = useState([]);
+  const [genreList, setGenreList] = useState<GenreData[] | null>();
   
-            const results = response.data.results 
-  
-            const movies:Movie[] = results.map((movie: Movie) => { 
-              return {
-                id: String(movie.id),
-                original_title: movie.original_title, 
-                poster_path: movie.poster_path,   
-              }
-            })   
-      
-            const genreWithMovies = {  
-              id: String(genre.id), 
-              name: genre.name,
-              movies: movies               
-            }
-            console.log(genreWithMovies)
-            return genreWithMovies          
-        })        
-      ])
-      console.log(array)  
-
+  useEffect(() => {
+    const loadAll = async () => {
+      const list = await Tmdb.getHomeList();
+      setGenreList(list)
     }
-  }
-  
-  async function handleSearch() {
+    
+    loadAll()
 
-    const results = await api.get<GenreData[], any>(`/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`)
+  })
 
-
-    setGenres(results)
-
-
-    getMoviesByGenre()
-  
-
-
-  }
-
-
-  useEffect( () => {
-    handleSearch()
-
-  }, [])
-  
-  
 
   return (
-    <>
-      { genres?.map( genre =>(
-        <Component key={genre.id}>
-          <h1>{genre.name}</h1>
-          {/* {genre?.map(genre => (
-            <img src="" alt="" />
-          ))} */}
+    <> 
+      { genreList?.map( genre =>( 
+        <Component key={genre.slug}>    
+          <h1 key={genre.slug}>{genre.title}</h1> 
+          {genre.items.results.map(movie => (
+            <div key={movie.id}>
+              <h3>{movie.original_title}</h3> 
+              <img src={'https://image.tmdb.org/t/p/w500/'+movie.poster_path} alt="" />
+            </div>
+          ))}
         </Component>         
-      ))}
+      ))} 
     </>
   )
 }
