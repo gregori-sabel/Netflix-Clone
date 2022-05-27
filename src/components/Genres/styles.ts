@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
-
-export const Component = styled.div`
+export const MovieList = styled.div`
   color: white;
-  margin: 40px;
+  display: flex;
 
   h1{
     font-weight: 100;
   }
+
+
+`
+export const Genre = styled.div`
+  color: white;
+  margin: 40px;
+
+
+  h1{
+    font-weight: 100;
+  }
+
 
 `

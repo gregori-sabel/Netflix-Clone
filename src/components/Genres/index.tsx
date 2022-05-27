@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { api } from "../../services/api"
 import Tmdb from "../../Tmdb";
-import { Component } from './styles'
+import { Movie } from "../Movie";
+import { MovieList, Genre } from './styles'
 
 interface Movie{
   id: string;
@@ -19,7 +19,6 @@ interface GenreData {
 
 
 export function Genres(){
-  // const [movieList, setMovieList] = useState([]);
   const [genreList, setGenreList] = useState<GenreData[] | null>();
   
   useEffect(() => {
@@ -36,15 +35,14 @@ export function Genres(){
   return (
     <> 
       { genreList?.map( genre =>( 
-        <Component key={genre.slug}>    
+        <Genre>
           <h1 key={genre.slug}>{genre.title}</h1> 
-          {genre.items.results.map(movie => (
-            <div key={movie.id}>
-              <h3>{movie.original_title}</h3> 
-              <img src={'https://image.tmdb.org/t/p/w500/'+movie.poster_path} alt="" />
-            </div>
-          ))}
-        </Component>         
+          <MovieList >
+            {genre.items.results.map(movie => (
+              <Movie key={movie.id} title={movie.original_title} poster={'https://image.tmdb.org/t/p/w500/'+movie.poster_path}/>
+            ))}
+          </MovieList>     
+        </Genre>
       ))} 
     </>
   )

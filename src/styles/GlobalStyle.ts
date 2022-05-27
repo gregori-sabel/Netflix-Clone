@@ -3,7 +3,7 @@ import {createGlobalStyle} from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     body{
       margin: 0;
-      background-color: var(--dark-main);
+      background-color: var(--black);
       font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 

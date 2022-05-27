@@ -1,6 +1,6 @@
 import { BlackLinear, Component, Overview, Buttons } from './styles'
 import { BsPlayFill } from "react-icons/bs";
-import { FiPlay, FiInfo } from "react-icons/fi";
+import { FiInfo } from "react-icons/fi";
 import { IconContext } from "react-icons";
 
 interface CoverImageProps{
