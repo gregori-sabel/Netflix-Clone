@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Tmdb from "../../Tmdb";
 import { Movie } from "../Movie";
-import { MovieList, Genre } from './styles'
+import { MovieList, Genre, Component } from './styles'
 
 interface Movie{
   id: string;
@@ -33,7 +33,7 @@ export function Genres(){
 
 
   return (
-    <> 
+    <Component>
       { genreList?.map( genre =>( 
         <Genre>
           <h1 key={genre.slug}>{genre.title}</h1> 
@@ -44,6 +44,6 @@ export function Genres(){
           </MovieList>     
         </Genre>
       ))} 
-    </>
+    </Component>
   )
 }

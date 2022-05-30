@@ -1,6 +1,19 @@
 import styled from 'styled-components'
 
+export const Space = styled.div`
+  height: 76px;
+
+`
+
+
 export const Component = styled.div`
+  z-index: 1000;
+  position: absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+
+
   background-color: var(--black);
   padding: 20px 60px;
   color: white;

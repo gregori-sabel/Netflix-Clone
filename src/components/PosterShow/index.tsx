@@ -29,18 +29,6 @@ export function PosterShow(){
       { movies && (
         <CoverImage link={movies[0].backdrop_path} />
       )}
-      
-      
-
-      
     </>
   )
 }
-
-// { movies?.map( movie =>(      
-//   <>
-//     {/* <img src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path} alt="" /> */}
-//     {/* <img src={'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path} alt="" /> */}
-//     {/* <h1>{movie.title}</h1> */}
-//   </>  
-// ))}

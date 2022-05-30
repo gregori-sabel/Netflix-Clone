@@ -1,5 +1,5 @@
-import { Buttons, Component, Extras, Genres, Infos, AgeIcon, IconButton, HDIcon } from './styles'
-import { FiPlay, FiPlus, FiThumbsUp, FiChevronDown } from "react-icons/fi";
+import { LittleBall, Buttons, Component, Extras, Genres, Infos, AgeIcon, IconButton, HDIcon } from './styles'
+import { FiPlus, FiThumbsUp, FiChevronDown } from "react-icons/fi";
 import { FaPlay } from "react-icons/fa"
 import { IconContext } from 'react-icons';
 
@@ -10,9 +10,9 @@ interface MovieProps{
 
 export function Movie( { title, poster }: MovieProps ) {
   return (
-    <Component>
+    <Component className='parent'>
       <img src={poster} alt="" />
-      <Infos>
+      <Infos className='child'>
         <h1>{title}</h1>
         <Buttons>
           <div>
@@ -31,10 +31,10 @@ export function Movie( { title, poster }: MovieProps ) {
           <span>1h 30min</span>
           <HDIcon> <span>HD</span> </HDIcon>
         </Extras>
-
         <Genres>
-          <span>Apimentados</span>
-          <span>Besteirol</span>
+          <span>Ação</span> <LittleBall />
+          <span>Besteirol</span> 
+          <LittleBall />
           <span>Trolagem</span>
         </Genres>
       </Infos>

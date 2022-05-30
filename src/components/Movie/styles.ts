@@ -8,18 +8,31 @@ type IconButtonProps = {
 
 export const Component = styled.div`
   color: white;
-  margin: 40px;
   position: relative;
 
-  box-shadow: 0px 0px 10px black;
 
   img{
     object-fit: cover;
     width: 285px;
     height: 160px;
+
+    border-radius: 5px 5px 5px 5px ;
   }
 
-  
+  transition: 0.2s ease-out;
+  // the animation of infos is in global css
+
+  &:hover img {
+    border-radius: 5px 5px 0px 0px ;
+
+  }
+  &:hover{
+    transform: scale(1.2);
+    visibility: visible;
+    z-index: 10;
+    
+    box-shadow: 0px 0px 10px black;
+  }
 `
 
 export const Infos = styled.div`
@@ -45,9 +58,12 @@ export const Infos = styled.div`
     font-size: x-large;
   }
 
+  visibility: hidden;
+  
+  
 
-`
-
+  
+  `
 
 export const Buttons = styled.div`
   display: flex;
@@ -91,18 +107,22 @@ export const Extras = styled.div`
 
 export const Genres = styled.div`
   display: flex;
+  /* justify-content: center; */
+  align-items: center;
   margin: 20px;
   gap: 5px;
 
-  span:after {
-      content: '';
-      background-color: blue;
-      outline: solid red;
-      width: 5px;
-      height: 5px;
-    }
+
 
 `
+
+export const LittleBall = styled.div`
+    width: 5px;
+    height: 5px;
+    background: darkgray;
+    border-radius: 50%;
+`
+
 
 export const IconButton = styled.div<IconButtonProps>`
   display: flex;
