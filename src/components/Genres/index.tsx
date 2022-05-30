@@ -39,7 +39,7 @@ export function Genres(){
           <h1 key={genre.slug}>{genre.title}</h1> 
           <MovieList >
             {genre.items.results.map(movie => (
-              <Movie key={movie.id} title={movie.original_title} poster={'https://image.tmdb.org/t/p/w500/'+movie.poster_path}/>
+              <Movie key={movie.id} title={movie.original_title} poster={'https://image.tmdb.org/t/p/w780/'+movie.poster_path}/>
             ))}
           </MovieList>     
         </Genre>

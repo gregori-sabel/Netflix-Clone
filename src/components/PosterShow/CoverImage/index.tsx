@@ -11,7 +11,7 @@ export function CoverImage( { link }: CoverImageProps){
   return(
     <>
     <Component>
-      <img src={'https://image.tmdb.org/t/p/w500/' + link} />
+      <img src={'https://image.tmdb.org/t/p/w1280/' + link} />
       <BlackLinear></BlackLinear>
 
       <Overview>
