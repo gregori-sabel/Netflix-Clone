@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const Space = styled.div`
-  height: 76px;
+  height: 70px;
 
 `
 
 
 export const Component = styled.div`
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   top:0px;
   left:0px;
   right:0px;
