@@ -18,5 +18,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
 
+  html, body{
+    height: 100%;
+  }
+
 
 `;

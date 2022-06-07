@@ -61,8 +61,6 @@ export const Infos = styled.div`
   visibility: hidden;
   
   
-
-  
   `
 
 export const Buttons = styled.div`
