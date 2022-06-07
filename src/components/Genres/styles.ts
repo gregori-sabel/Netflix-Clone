@@ -10,7 +10,7 @@ export const Component = styled.div`
 
 `
 
-export const Genre = styled.div`
+export const GenreComponent = styled.div`
   color: white;
   width: 100%;
 
