@@ -29,14 +29,13 @@ export default function Genre({ slug, title, items}:GenreData) {
 
   function slideRight(){
 
-    const itemsWidth = (items.results.length * (285 + 10) + 60 + 20)
+    const movieListWidth = (items.results.length * (285 + 10) + 60 + 20)
     
-    const WidthValue = -1 * (itemsWidth - window.innerWidth)
-    console.log(WidthValue)
+    const WidthValue = -1 * (movieListWidth - window.innerWidth)
     
-    const slideTimes = Math.ceil(itemsWidth / window.innerWidth)
-    const newSlideAmount = slideAmount - (itemsWidth / slideTimes)     
-    console.log(`itemsWidth:${itemsWidth} windown:${window.innerWidth}  slideTimes:${slideTimes}  newPush:${window.innerWidth / slideTimes}`)
+    const slideTimes = Math.ceil(movieListWidth / window.innerWidth)
+    const newSlideAmount = slideAmount - (movieListWidth / slideTimes)     
+
     if( newSlideAmount < (WidthValue) ){
       setSlideAmount(WidthValue)
     }else{
