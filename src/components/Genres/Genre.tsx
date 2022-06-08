@@ -3,7 +3,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Movie } from "../Movie";
 import { Arrows, GenreComponent, MovieList } from "./styles";
 
-interface Movie{
+interface MovieType{
   id: string;
   original_title: string;
   poster_path: string
@@ -13,7 +13,7 @@ interface GenreData{
   slug: string,
   title: string,
   items: {
-    results: Movie[];
+    results: MovieType[];
   }
 }
 
@@ -23,11 +23,13 @@ export default function Genre({ slug, title, items}:GenreData) {
   const [slideAmount, setSlideAmount] = useState(0)
 
   function slideLeft(){
-    setSlideAmount(slideAmount + 500)
+    const newSlideAmount = slideAmount + 500 
+    setSlideAmount((newSlideAmount > 0 ? 0 : newSlideAmount))
   }
 
   function slideRight(){
-    setSlideAmount(slideAmount - 500)
+    const newSlideAmount = slideAmount - 500 
+    setSlideAmount(newSlideAmount)
   }
 
 
@@ -35,7 +37,7 @@ export default function Genre({ slug, title, items}:GenreData) {
     <>
       <GenreComponent >
         <h1 >{title}</h1> 
-        <Arrows>
+        <Arrows slideAmount={slideAmount}>
           <button type="button" onClick={() => slideLeft()}>
             <FiChevronLeft size='50px' />
           </button>

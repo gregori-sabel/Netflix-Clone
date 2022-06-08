@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import variant from "styled-components"
 
 type IconButtonProps = {
   colored?: boolean
 }
 
 
-export const Component = styled.div`
+export const Component = styled.div` 
   color: white;
   position: relative;
 

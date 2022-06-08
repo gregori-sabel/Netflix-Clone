@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import Tmdb from "../../Tmdb";
-import { Movie } from "../Movie";
-import { MovieList, Component, Arrows } from './styles'
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Component } from './styles'
 import Genre from "./Genre";
 
-interface Movie{
+interface MovieType{
   id: string;
   original_title: string;
   poster_path: string
@@ -15,10 +13,9 @@ interface GenreData {
   slug: string,
   title: string,
   items: {
-    results: Movie[];
+    results: MovieType[];
   }
 }
-
 
 export function Genres(){
   const [genreList, setGenreList] = useState<GenreData[] | null>();
@@ -33,6 +30,9 @@ export function Genres(){
   })
 
   return (
+    // <OverflowComponent>
+
+    // </OverflowComponent>
     <Component>
       { genreList?.map( genre =>( 
         <Genre key={genre.slug} slug={genre.slug} title={genre.title} items={genre.items}/>

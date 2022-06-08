@@ -31,7 +31,7 @@ export const Overview = styled.div`
   position: absolute;
   top: 120px;
   width: 500px;
-  margin-left: 40px;
+  margin-left: 60px;
   /* background-color: black; */
 
   h1{
@@ -45,6 +45,9 @@ export const Overview = styled.div`
     font-weight: bold;
     font-size: 30px;
     color: white;
+
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
   
   p{   
