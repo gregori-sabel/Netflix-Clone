@@ -36,6 +36,7 @@ export const Component = styled.div`
 
 export const Infos = styled.div`
   position: absolute ;
+  z-index: 990;
   
   top: 160px;
   width: 285px;
@@ -59,8 +60,9 @@ export const Infos = styled.div`
 
   visibility: hidden;
   
+  z-index: 9999 !important;
   
-  `
+`
 
 export const Buttons = styled.div`
   display: flex;
