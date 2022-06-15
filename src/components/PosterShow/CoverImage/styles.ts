@@ -1,13 +1,29 @@
 import styled from 'styled-components'
 
-export const BlackLinear = styled.div`
-    position: absolute;
-    content: ' ';
-    width: 100%;
-    height: 100%;
-    top: -4px;
-    left: 0px;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+interface ImageProps {
+  url: string;
+}
+
+
+
+export const BlackLinearLeft = styled.div`
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-image: linear-gradient(120deg, rgba(20,20,20,0.5) 20%, transparent 50%);
+
+`
+export const BlackLinearDown = styled.div`
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0px;
+  background-image: linear-gradient(to top, rgba(20,20,20,1) 2%, transparent 50%);
 
 `
 export const Component = styled.div`
@@ -30,7 +46,7 @@ export const Component = styled.div`
 export const Overview = styled.div`
   position: absolute;
   top: 120px;
-  width: 500px;
+  width: 600px;
   margin-left: 60px;
   /* background-color: black; */
 
@@ -51,7 +67,8 @@ export const Overview = styled.div`
   }
   
   p{   
-    font-size: large;
+    font-size: x-large;
+    font-size: 22px;
     font-weight: 100;
     color: white;
     line-height: 150%;
@@ -94,8 +111,8 @@ export const Buttons = styled.div`
     span{
       margin-left: 25px;
 
-      font-weight: 800;
-      font-size: 15px;
+      font-weight: bold;
+      font-size: 20px;
 
     }
   }

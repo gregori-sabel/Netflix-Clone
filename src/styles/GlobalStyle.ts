@@ -15,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased !important;
   }
 
+  :root, body {
+    width: 100%;
+    height: 100%;
+  }
+
 
   :root{
     --black: #141414;

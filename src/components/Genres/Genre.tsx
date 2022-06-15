@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Movie } from "../Movie";
-import { Arrow, GenreComponent, MovieList } from "./styles";
+import { Arrow, GenreComponent, MovieList, MovieWrapper } from "./styles";
 
 interface MovieType{
   id: string;
@@ -47,7 +47,7 @@ export default function Genre({ slug, title, items}:GenreData) {
   return(
     <>
       <GenreComponent >
-        <h1 >{title} | {slideAmount}</h1> 
+        <h1 >{title}</h1> 
         <Arrow slideAmount={slideAmount} side='left'>
           <button type="button" onClick={() => slideLeft()}>
             <FiChevronLeft size='50px' />
@@ -60,7 +60,9 @@ export default function Genre({ slug, title, items}:GenreData) {
         </Arrow>
         <MovieList slideAmount={slideAmount}>
           {items.results.map(movie => (
-            <Movie key={movie.id} title={movie.original_title} poster={'https://image.tmdb.org/t/p/w780/'+movie.poster_path}/>
+            <MovieWrapper key={movie.id} >
+              <Movie title={movie.original_title} poster={'https://image.tmdb.org/t/p/w780/'+movie.poster_path}/>
+            </MovieWrapper>
           ))}
         </MovieList>   
       </GenreComponent>

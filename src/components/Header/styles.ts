@@ -5,13 +5,13 @@ export const Space = styled.div`
 
 `
 
-
 export const Component = styled.div`
-  z-index: 1000;
+
   position: fixed;
   top:0px;
   left:0px;
   right:0px;
+  z-index: 999;
 
 
   background-color: var(--black);
@@ -39,6 +39,11 @@ export const Items = styled.div`
       color: #a0a0a0;
       cursor: pointer;
     }
+  }
+
+  img{
+    width: 30px;
+    border-radius: 3px;
   }
 
 `

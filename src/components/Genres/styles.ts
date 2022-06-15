@@ -14,22 +14,27 @@ export const Component = styled.div`
 
   overflow: hidden;
   padding-left: 60px;
+  padding-bottom: 200px;
+  /* margin-bottom: 20px; */
 
   transform: translateY(-200px);
-
+  
 `
 
 export const GenreComponent = styled.div`
   color: white;
   width: 100%;
-
-
+  
   position: relative;
-
+  
   h1{
     font-weight: bold;
     padding-bottom: 20px;
     padding-top: 40px;
+  }
+
+  &:hover{
+    z-index: 90;
   }
 
 `
@@ -39,14 +44,8 @@ export const MovieList = styled.div<slideAmountProps>`
   display: flex;
   gap: 10px;
 
-  /* position: absolute;
-  z-index: 0; */
   transform: translateX( ${(props) => (props.slideAmount)}px);
   transition: 0.8s cubic-bezier(.2,.01,.41,.99);
-
-  
-  /* left: ${(props) => (props.slideAmount)}px;
-  transition: 0.5s ease-in-out; */
 
   h1{
     font-weight: 100;
@@ -54,13 +53,14 @@ export const MovieList = styled.div<slideAmountProps>`
 
 `
 
+export const MovieWrapper = styled.div`
+
+
+`
+
 export const Arrow = styled.div<ArrowProps>`
-  /* width: 100%; */
-  /* display: flex; */
-  /* justify-content: space-between; */
 
   position: absolute;
-  /* left: -60px; */
 
   ${props => (props.side === 'left' ? 
     {left: -60}
@@ -69,8 +69,7 @@ export const Arrow = styled.div<ArrowProps>`
   )}
 
   top: 97px;
-  /* top: 57px; */
-  z-index: 1000;
+  z-index: 1;
 
   button{
     height: 160px;

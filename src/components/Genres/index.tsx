@@ -23,16 +23,13 @@ export function Genres(){
   useEffect(() => {
     const loadAll = async () => {
       const list = await Tmdb.getHomeList();
-      setGenreList(list)
+      setGenreList(list.reverse())
     }
     
     loadAll()
   })
 
   return (
-    // <OverflowComponent>
-
-    // </OverflowComponent>
     <Component>
       { genreList?.map( genre =>( 
         <Genre key={genre.slug} slug={genre.slug} title={genre.title} items={genre.items}/>

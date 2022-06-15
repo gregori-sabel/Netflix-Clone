@@ -18,17 +18,19 @@ export const Component = styled.div`
     border-radius: 5px 5px 5px 5px ;
   }
 
-  transition: 0.2s ease-out;
+  transition: 0.2s cubic-bezier(0,.7,.36,1);
   // the animation of infos is in global css
 
   &:hover img {
     border-radius: 5px 5px 0px 0px ;
+    
 
   }
   &:hover{
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-60px) translateZ(-1000px);
     visibility: visible;
-    z-index: 10;
+    z-index: 999;
+    position: relative;
     
     box-shadow: 0px 0px 10px black;
   }
@@ -36,7 +38,6 @@ export const Component = styled.div`
 
 export const Infos = styled.div`
   position: absolute ;
-  z-index: 990;
   
   top: 160px;
   width: 285px;
@@ -50,17 +51,16 @@ export const Infos = styled.div`
 
   h1{
     position: absolute;
-    bottom: calc(10px + 160px);
+    bottom: calc(10px + 150px);
     left: 20px;
     margin: 0px;
 
     font-weight: 100;
-    font-size: x-large;
+    font-size: large;
   }
 
   visibility: hidden;
   
-  z-index: 9999 !important;
   
 `
 
@@ -147,7 +147,7 @@ export const AgeIcon = styled.div`
   padding: 5px;
   margin: 0px;
 
-  top: 68px;
+  top: 63px;
   left: 124px;
 
   background-color: #0d0d0d;

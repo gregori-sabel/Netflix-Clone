@@ -22,6 +22,7 @@ export function Header(){
             <span>Infantil</span> 
             <FiBell /> 
             <FiUser /> 
+            <img src="./images/profile.png" alt="" />
             <FiChevronDown />
           </Items>
         </div>
