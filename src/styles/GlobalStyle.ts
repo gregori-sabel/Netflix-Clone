@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
   .parent:hover .child{
-    visibility: visible;
+    opacity: 100%;
   }
 
 

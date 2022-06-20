@@ -13,7 +13,7 @@ export function Movie( { title, poster }: MovieProps ) {
     <Component className='parent'>
       <img src={poster} alt="" />
       <Infos className='child'>
-        <h1>{title}</h1>
+        {/* <h1>{title}</h1> */}
         <Buttons>
           <div>
             <IconContext.Provider value={{ color: 'black'}} >

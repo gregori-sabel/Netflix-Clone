@@ -19,6 +19,7 @@ export const Component = styled.div`
   }
 
   transition: 0.2s cubic-bezier(0,.7,.36,1);
+  transition-delay: 0.3s;
   // the animation of infos is in global css
 
   &:hover img {
@@ -28,7 +29,7 @@ export const Component = styled.div`
   }
   &:hover{
     transform: scale(1.2) translateY(-60px) translateZ(-1000px);
-    visibility: visible;
+    /* visibility: visible; */
     z-index: 999;
     position: relative;
     
@@ -59,7 +60,9 @@ export const Infos = styled.div`
     font-size: large;
   }
 
-  visibility: hidden;
+  transition-delay: 0.3s;
+  /* visibility: hidden; */
+  opacity: 0%;
   
   
 `

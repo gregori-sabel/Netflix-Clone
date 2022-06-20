@@ -17,7 +17,7 @@ export const Component = styled.div`
   padding-bottom: 200px;
   /* margin-bottom: 20px; */
 
-  transform: translateY(-200px);
+  transform: translateY(-150px);
   
 `
 
@@ -33,8 +33,19 @@ export const GenreComponent = styled.div`
     padding-top: 40px;
   }
 
+  transition: 0.2s;
+
+  .arrows{
+    opacity: 0%;
+  }
+
+
   &:hover{
     z-index: 90;
+
+    .arrows{
+      opacity: 100%;
+    }    
   }
 
 `
@@ -73,7 +84,8 @@ export const Arrow = styled.div<ArrowProps>`
 
   button{
     height: 160px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0);
+    opacity: 0.3;
     
     border: none;
     border-radius: 5px;
@@ -86,7 +98,7 @@ export const Arrow = styled.div<ArrowProps>`
     transition: opacity 0.2s ease-out;
 
     &:hover{
-      background-color: rgba(0, 0, 0, 0.7);
+      opacity: 0.5;
     }
   }
 

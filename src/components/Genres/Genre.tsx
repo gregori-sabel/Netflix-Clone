@@ -48,17 +48,19 @@ export default function Genre({ slug, title, items}:GenreData) {
     <>
       <GenreComponent >
         <h1 >{title}</h1> 
-        <Arrow slideAmount={slideAmount} side='left'>
-          <button type="button" onClick={() => slideLeft()}>
-            <FiChevronLeft size='50px' />
-          </button>
-        </Arrow>
-        <Arrow slideAmount={slideAmount} side='right'> 
-          <button type="button" onClick={slideRight}>
-            <FiChevronRight size='50px' />
-          </button>
-        </Arrow>
-        <MovieList slideAmount={slideAmount}>
+        <div className="arrows">
+          <Arrow slideAmount={slideAmount} side='left'>
+            <button type="button" onClick={() => slideLeft()}>
+              <FiChevronLeft size='50px' />
+            </button>
+          </Arrow>
+          <Arrow slideAmount={slideAmount} side='right'> 
+            <button type="button" onClick={slideRight}>
+              <FiChevronRight size='50px' />
+            </button>
+          </Arrow>
+        </div>
+        <MovieList slideAmount={slideAmount} className="movieList">
           {items.results.map(movie => (
             <MovieWrapper key={movie.id} >
               <Movie title={movie.original_title} poster={'https://image.tmdb.org/t/p/w780/'+movie.poster_path}/>

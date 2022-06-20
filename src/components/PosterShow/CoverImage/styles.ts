@@ -45,7 +45,7 @@ export const Component = styled.div`
 `
 export const Overview = styled.div`
   position: absolute;
-  top: 120px;
+  top: 200px;
   width: 600px;
   margin-left: 60px;
   /* background-color: black; */
