@@ -1,6 +1,5 @@
-![image](https://user-images.githubusercontent.com/55760643/180265754-8562b039-1345-4f06-a4db-4f9fbe219ba6.png)
 
-
+![](https://github.com/Greg-art/Netflix-Clone/blob/main/Gif.gif)
 
 # Getting Started with Create React App
 
