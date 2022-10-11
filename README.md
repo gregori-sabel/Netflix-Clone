@@ -1,5 +1,5 @@
 
-![](https://github.com/Greg-art/Netflix-Clone/blob/main/Gif.gif)
+![Loading gif](https://github.com/Greg-art/Netflix-Clone/blob/main/Gif.gif)
 
 # Getting Started with Create React App
 
